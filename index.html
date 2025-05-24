@@ -3,16 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Trading Calculator</title>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Gold Strategy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
+
+  <!-- PIN Screen -->
+  <div id="pin-screen">
+    <h2 class="title">Enter PIN to Access</h2>
+    <input type="password" id="pin-input" placeholder="Enter PIN"/>
+    <button onclick="checkPin()">Submit</button>
+    <p id="error-msg" style="color: red; display: none;">Wrong PIN. Try again.</p>
+  </div>
+
+  <!-- Calculator (hidden by default) -->
+  <div id="calculator-container" style="display: none;" class="container">
     <h1 class="title">Gold Strategy</h1>
     <input type="text" id="display" readonly />
 
     <div class="buttons">
-      <!-- Calculator Buttons -->
       <button onclick="appendNumber('1')">1</button>
       <button onclick="appendNumber('2')">2</button>
       <button onclick="appendNumber('3')">3</button>
@@ -27,13 +36,15 @@
       <button onclick="calculate()">=</button>
     </div>
 
-    <!-- Special Buttons -->
     <div class="actions">
       <button class="up-btn" onclick="calculateUp2()">Up 2</button>
       <button class="down-btn" onclick="calculateDown2()">Down 2</button>
       <button class="up-btn" onclick="calculateUp1()">Up 1</button>
       <button class="down-btn" onclick="calculateDown1()">Down 1</button>
     </div>
+
+    <h3>History</h3>
+    <ul id="history-log" class="history-log"></ul>
   </div>
 
   <script src="script.js"></script>
