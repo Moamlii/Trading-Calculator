@@ -2,49 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trading Calculator</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="trading-header">
-    <h1 class="title">Trading Calculator</h1>
-    <p class="subtitle">Calculate Gold Price Adjustments</p>
-  </div>
-
-  <div class="calculator">
+  <div class="container">
+    <h1 class="site-title">Trading Calculator</h1>
     <input type="text" id="display" readonly />
 
     <div class="buttons">
-      <!-- Number Buttons -->
-      <button class="btn">7</button>
-      <button class="btn">8</button>
-      <button class="btn">9</button>
-      <button class="btn">/</button>
+      <!-- Calculator Buttons -->
+      <button onclick="appendNumber('1')">1</button>
+      <button onclick="appendNumber('2')">2</button>
+      <button onclick="appendNumber('3')">3</button>
+      <button onclick="appendNumber('4')">4</button>
+      <button onclick="appendNumber('5')">5</button>
+      <button onclick="appendNumber('6')">6</button>
+      <button onclick="appendNumber('7')">7</button>
+      <button onclick="appendNumber('8')">8</button>
+      <button onclick="appendNumber('9')">9</button>
+      <button onclick="appendNumber('0')">0</button>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="calculate()">=</button>
+    </div>
 
-      <button class="btn">4</button>
-      <button class="btn">5</button>
-      <button class="btn">6</button>
-      <button class="btn">*</button>
-
-      <button class="btn">1</button>
-      <button class="btn">2</button>
-      <button class="btn">3</button>
-      <button class="btn">-</button>
-
-      <button class="btn">0</button>
-      <button class="btn">.</button>
-      <button class="btn">=</button>
-      <button class="btn">+</button>
-
-      <!-- Special Buttons -->
-      <button class="btn up-btn">Up</button>
-      <button class="btn down-btn">Down</button>
-      <button class="btn up1-btn">Up 1</button>
-      <button class="btn down1-btn">Down 1</button>
-
-      <!-- Clear Button -->
-      <button class="btn" id="clear">Clear</button>
+    <!-- Special Buttons -->
+    <div class="actions">
+      <button class="up-btn" onclick="calculateUp2()">Up 2</button>
+      <button class="down-btn" onclick="calculateDown2()">Down 2</button>
+      <button class="up-btn" onclick="calculateUp1()">Up 1</button>
+      <button class="down-btn" onclick="calculateDown1()">Down 1</button>
     </div>
   </div>
 
