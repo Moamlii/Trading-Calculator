@@ -19,22 +19,23 @@ body {
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #22d3ee, #facc15);
   background-size: 1000% 1000%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rgbFlow 10s linear infinite;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, font-size 0.3s ease;
   cursor: pointer;
+  text-align: center;
+  margin: 30px 0;
 }
 
-@keyframes rgbFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.title:hover {
+  transform: scale(1.2);
 }
+
 
 .subtitle {
   font-size: 1rem;
