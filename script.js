@@ -1,89 +1,53 @@
-const display = document.getElementById('display');
-const buttons = document.querySelectorAll('.buttons .btn');
-const clearBtn = document.getElementById('clear');
+function appendNumber(num) {
+  document.getElementById("display").value += num;
+}
 
-let currentInput = '';
+function clearDisplay() {
+  document.getElementById("display").value = "";
+}
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    const btnText = button.textContent;
+function calculate() {
+  try {
+    document.getElementById("display").value = eval(
+      document.getElementById("display").value
+    );
+  } catch {
+    document.getElementById("display").value = "Error";
+  }
+}
 
-    if (btnText === 'Clear') {
-      currentInput = '';
-      display.value = '';
-      return;
-    }
+// This was previously "Up"
+function calculateUp2() {
+  let value = document.getElementById("display").value;
+  if (!/^\d+$/.test(value)) return;
+  let sum = [...value].reduce((acc, digit) => acc + parseInt(digit), 0);
+  let total = parseInt(value) + sum + 11;
+  document.getElementById("display").value = total;
+}
 
-    if (btnText === '=') {
-      try {
-        // Evaluate normal math expression
-        currentInput = eval(currentInput).toString();
-        display.value = currentInput;
-      } catch {
-        display.value = 'Error';
-        currentInput = '';
-      }
-      return;
-    }
+// This was previously "Down"
+function calculateDown2() {
+  let value = document.getElementById("display").value;
+  if (!/^\d+$/.test(value)) return;
+  let sum = [...value].reduce((acc, digit) => acc + parseInt(digit), 0);
+  let total = parseInt(value) - (sum + 11);
+  document.getElementById("display").value = total;
+}
 
-    // Handle special buttons:
-    if (btnText === 'Up') {
-      if (currentInput === '') return;
+// Up 1 = last two digits + 11, then add to number
+function calculateUp1() {
+  let value = document.getElementById("display").value;
+  if (!/^\d+$/.test(value) || value.length < 2) return;
+  let lastTwo = parseInt(value.slice(-2));
+  let total = parseInt(value) + (lastTwo + 11);
+  document.getElementById("display").value = total;
+}
 
-      // Sum digits + 11, then add result to number
-      const num = parseInt(currentInput);
-      const digits = currentInput.split('').map(Number);
-      const sum = digits.reduce((a, b) => a + b, 0);
-      const result = num + (sum + 11);
-      currentInput = result.toString();
-      display.value = currentInput;
-      return;
-    }
-
-    if (btnText === 'Down') {
-      if (currentInput === '') return;
-
-      const num = parseInt(currentInput);
-      const digits = currentInput.split('').map(Number);
-      const sum = digits.reduce((a, b) => a + b, 0);
-      const result = num - (sum + 11);
-      currentInput = result.toString();
-      display.value = currentInput;
-      return;
-    }
-
-    if (btnText === 'Up 1') {
-      if (currentInput === '') return;
-
-      // Sum first two digits + 9, then add to number
-      const num = parseInt(currentInput);
-      const digits = currentInput.split('').map(Number);
-      const sumFirstTwo = (digits[0] || 0) + (digits[1] || 0);
-      const result = num + (sumFirstTwo + 9);
-      currentInput = result.toString();
-      display.value = currentInput;
-      return;
-    }
-
-    if (btnText === 'Down 1') {
-      if (currentInput === '') return;
-
-      const num = parseInt(currentInput);
-      const digits = currentInput.split('').map(Number);
-      const sumFirstTwo = (digits[0] || 0) + (digits[1] || 0);
-      const result = num - (sumFirstTwo + 9);
-      currentInput = result.toString();
-      display.value = currentInput;
-      return;
-    }
-
-    // For normal buttons: append text (numbers, operators)
-    currentInput += btnText;
-    display.value = currentInput;
-  });
-});
-
-clearBtn.addEventListener('click', () => {
-  currentInput = '';
-  display.value = '';
-});
+// Down 1 = last two digits + 11, then subtract from number
+function calculateDown1() {
+  let value = document.getElementById("display").value;
+  if (!/^\d+$/.test(value) || value.length < 2) return;
+  let lastTwo = parseInt(value.slice(-2));
+  let total = parseInt(value) - (lastTwo + 11);
+  document.getElementById("display").value = total;
+}
