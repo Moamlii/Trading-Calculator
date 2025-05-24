@@ -1,8 +1,7 @@
-/* Midnight full background */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #0b0f1a; /* deep midnight */
+  background-color: #0b0f1a;
   color: #e0f7fa;
   display: flex;
   flex-direction: column;
@@ -11,13 +10,7 @@ body {
   background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
 }
 
-/* Header with animated RGB title */
-.trading-header {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-
+/* Title */
 .title {
   font-size: 3rem;
   font-weight: bold;
@@ -26,7 +19,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rgbFlow 10s linear infinite;
-  transition: transform 0.3s ease, font-size 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
   text-align: center;
   margin: 30px 0;
@@ -36,15 +29,15 @@ body {
   transform: scale(1.2);
 }
 
-
-.subtitle {
-  font-size: 1rem;
-  color: #aaa;
+@keyframes rgbFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Calculator container */
-.calculator {
-  background: #121827; /* dark midnight panel */
+.container {
+  background: #121827;
   border: 1px solid #1e293b;
   padding: 20px;
   border-radius: 16px;
@@ -53,7 +46,7 @@ body {
 }
 
 /* Display input */
-input[type="text"] {
+input[type="text"], input[type="password"] {
   width: 100%;
   height: 50px;
   font-size: 1.5rem;
@@ -74,7 +67,6 @@ input[type="text"] {
   gap: 10px;
 }
 
-/* Button style */
 button {
   padding: 15px;
   font-size: 1.1rem;
@@ -86,39 +78,86 @@ button {
   box-shadow: 0 0 6px rgba(0, 255, 255, 0.08);
 }
 
-/* Button hover */
 button:hover {
   background: #00ffc8;
   color: #000;
   transform: scale(1.07);
   box-shadow: 0 0 18px #00ffc8aa;
 }
-/* Special Trading Buttons Style */
 
-/* UP - Green */
-.up-btn, .up1-btn {
+/* PIN screen styling */
+#pin-screen {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#pin-screen input {
+  text-align: center;
+}
+
+/* Special Trading Buttons Style */
+.up-btn {
   background: #033b21;
   color: #00ff9d;
   box-shadow: 0 0 10px rgba(0, 255, 150, 0.5);
 }
 
-.up-btn:hover, .up1-btn:hover {
+.up-btn:hover {
   background: #00ff9d;
   color: #000;
   transform: scale(1.1);
   box-shadow: 0 0 18px #00ff9d;
 }
 
-/* DOWN - Red */
-.down-btn, .down1-btn {
+.down-btn {
   background: #3b0d0d;
   color: #ff6b6b;
   box-shadow: 0 0 10px rgba(255, 80, 80, 0.5);
 }
 
-.down-btn:hover, .down1-btn:hover {
+.down-btn:hover {
   background: #ff6b6b;
   color: #000;
   transform: scale(1.1);
   box-shadow: 0 0 18px #ff6b6b;
 }
+
+.live-price {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #ffcc00;
+  font-weight: bold;
+  text-shadow: 0 0 8px #facc15;
+  text-align: center;
+}
+
+/* Source credit styling */
+#price-source {
+  display: block;
+  text-align: center;
+  color: #888;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+#price-source a {
+  color: #facc15;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#price-source a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.history-log {
+  margin-top: 15px;
+  background: #0f172a;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+  color: #a0f0ff;
+  font-size: 0.9rem;}
