@@ -38,16 +38,23 @@ function calculateDown2() {
 function calculateUp1() {
   let value = document.getElementById("display").value;
   if (!/^\d+$/.test(value) || value.length < 2) return;
-  let lastTwo = parseInt(value.slice(-2));
-  let total = parseInt(value) + (lastTwo + 11);
+
+  let lastTwo = value.slice(-2); // e.g., "22"
+  let digitSum = parseInt(lastTwo[0]) + parseInt(lastTwo[1]); // 2 + 2 = 4
+  let resultAdd = digitSum + 9; // 4 + 9 = 13
+  let total = parseInt(value) + resultAdd;
+
   document.getElementById("display").value = total;
 }
 
-// Down 1 = last two digits + 11, then subtract from number
 function calculateDown1() {
   let value = document.getElementById("display").value;
   if (!/^\d+$/.test(value) || value.length < 2) return;
-  let lastTwo = parseInt(value.slice(-2));
-  let total = parseInt(value) - (lastTwo + 11);
+
+  let lastTwo = value.slice(-2);
+  let digitSum = parseInt(lastTwo[0]) + parseInt(lastTwo[1]);
+  let resultSub = digitSum + 9;
+  let total = parseInt(value) - resultSub;
+
   document.getElementById("display").value = total;
 }
