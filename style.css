@@ -1,0 +1,123 @@
+/* Midnight full background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0b0f1a; /* deep midnight */
+  color: #e0f7fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('https://www.transparenttextures.com/patterns/dark-mosaic.png');
+}
+
+/* Header with animated RGB title */
+.trading-header {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ade80, #22d3ee, #facc15);
+  background-size: 1000% 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rgbFlow 10s linear infinite;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+@keyframes rgbFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+/* Calculator container */
+.calculator {
+  background: #121827; /* dark midnight panel */
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  width: 330px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+/* Display input */
+input[type="text"] {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  text-align: right;
+  padding: 10px;
+  border: none;
+  background-color: #0f172a;
+  color: #00ffe1;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.15);
+}
+
+/* Grid for buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Button style */
+button {
+  padding: 15px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  background: #1e293b;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.08);
+}
+
+/* Button hover */
+button:hover {
+  background: #00ffc8;
+  color: #000;
+  transform: scale(1.07);
+  box-shadow: 0 0 18px #00ffc8aa;
+}
+/* Special Trading Buttons Style */
+
+/* UP - Green */
+.up-btn, .up1-btn {
+  background: #033b21;
+  color: #00ff9d;
+  box-shadow: 0 0 10px rgba(0, 255, 150, 0.5);
+}
+
+.up-btn:hover, .up1-btn:hover {
+  background: #00ff9d;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 18px #00ff9d;
+}
+
+/* DOWN - Red */
+.down-btn, .down1-btn {
+  background: #3b0d0d;
+  color: #ff6b6b;
+  box-shadow: 0 0 10px rgba(255, 80, 80, 0.5);
+}
+
+.down-btn:hover, .down1-btn:hover {
+  background: #ff6b6b;
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 18px #ff6b6b;
+}
