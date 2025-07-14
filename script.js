@@ -72,7 +72,7 @@ function calculateDown1() {
 
 // PIN Check
 function checkPin() {
-  const correctPin = "7788";
+  const correctPin = "2244";
   const enteredPin = document.getElementById("pin-input").value;
 
   if (enteredPin === correctPin) {
