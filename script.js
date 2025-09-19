@@ -1,12 +1,12 @@
-// History log
+
 function addToHistory(entry) {
   const history = document.getElementById("history-log");
   const item = document.createElement("li");
   item.textContent = entry;
-  history.prepend(item); // newest on top
+  history.prepend(item); 
 }
 
-// Calculator functions
+
 function appendNumber(num) {
   document.getElementById("display").value += num;
 }
@@ -26,7 +26,7 @@ function calculate() {
   }
 }
 
-// Up 2: sum of digits + 11
+
 function calculateUp2() {
   let value = document.getElementById("display").value;
   if (!/^\d+$/.test(value)) return;
@@ -36,7 +36,7 @@ function calculateUp2() {
   addToHistory(`Up 2 applied: ${total}`);
 }
 
-// Down 2: subtract sum of digits + 11
+
 function calculateDown2() {
   let value = document.getElementById("display").value;
   if (!/^\d+$/.test(value)) return;
@@ -46,7 +46,7 @@ function calculateDown2() {
   addToHistory(`Down 2 applied: ${total}`);
 }
 
-// Up 1: sum last 2 digits + 9, then add
+
 function calculateUp1() {
   let value = document.getElementById("display").value;
   if (!/^\d+$/.test(value) || value.length < 2) return;
@@ -58,7 +58,7 @@ function calculateUp1() {
   addToHistory(`Up 1 applied: ${total}`);
 }
 
-// Down 1: sum last 2 digits + 9, then subtract
+
 function calculateDown1() {
   let value = document.getElementById("display").value;
   if (!/^\d+$/.test(value) || value.length < 2) return;
@@ -70,9 +70,9 @@ function calculateDown1() {
   addToHistory(`Down 1 applied: ${total}`);
 }
 
-// PIN Check
+
 function checkPin() {
-  const correctPin = "2244";
+  const correctPin = "1993";
   const enteredPin = document.getElementById("pin-input").value;
 
   if (enteredPin === correctPin) {
@@ -82,4 +82,5 @@ function checkPin() {
     document.getElementById("error-msg").style.display = "block";
   }
 }
+
 
